@@ -1,20 +1,19 @@
-'use client'
-import ProductCard from "@/components/card/productCard";
 import Button from "@/components/elements/Button/button";
 import Iconify from "@/components/elements/icon";
-import { productType, products, stat } from "@/dummyData";
+import { stat } from "@/helper";
 import Image from "next/image";
-import { useState } from "react";
 import heroImage from '../../public/images/hero-img.png'
 import BlogCard from "@/components/card/blogCard";
 import Link from "next/link";
-
+import ProductSection from "@/components/productSection";
 
 
 
 export default function Home() {
 
-  const [activeType, setActiveType] = useState(1)
+
+  // const uniqueCategories = products?.map((each) => ({ id: each.id, name: each.category }))
+  //   ?.filter((category, index, self) => index === self.findIndex((c) => c.name === category.name));
 
   return (
 
@@ -43,39 +42,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-10 container mx-auto">
-        <div className="flex flex-col items-center justify-center gap-3">
-          <h3 className="font-medium">COLLECTION</h3>
-          <div className="w-12 h-1 rounded-full bg-primary -mt-2" />
-          <p className="text-2xl font-semibold">Our Top Collection</p>
-        </div>
-
-        <div className="overflow-x-auto no-scroll">
-          <div className="flex gap-6 lg:gap-12 lg:justify-center items-center py-6">
-            {
-              productType.map((eachType, i) => (
-                <Button onClick={() => setActiveType(eachType.id)} key={eachType.id} variant={activeType === eachType.id ? "primary" : "white"} classNames="whitespace-nowrap">{eachType.name}</Button>
-              ))
-            }
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12">
-          {
-            products.map((eachProduct, i) => (
-              <div key={i} className="flex justify-center">
-                <div className='w-11/12 2xl:w-[85%] flex-none space-y-4'>
-                  <ProductCard item={eachProduct} />
-                </div>
-              </div>
-            ))
-          }
-        </div>
-
-        <div className="flex justify-center">
-          <Button variant="primary" icon={<Iconify icon='ic:round-arrow-right' className="text-2xl" />}>View More</Button>
-        </div>
-      </section>
+      <ProductSection />
 
       <section className="bg-[#fbe3d7] py-20 rounded-3xl container mx-auto">
         <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mx-auto">
