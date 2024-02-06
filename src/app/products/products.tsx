@@ -1,7 +1,7 @@
 "use client"
 import ProductCard from '@/components/card/productCard'
 import Button from '@/components/elements/Button/button'
-import { productType, products } from '@/dummyData'
+import { productType, products } from '@/helper'
 import React, { useState } from 'react'
 
 

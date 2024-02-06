@@ -8,6 +8,47 @@ import heels from '../public/images/heels.png'
 import { StaticImageData } from 'next/image'
 
 
+
+export const handleErrors = (err: any) => {
+    const response = err.response;
+    switch (response?.status) {
+        case 500:
+            window.alert(response.data.message)
+            break;
+
+        case 400:
+        case 401:
+        case 404:
+        case 405:
+        case 403:
+        case 422:
+            if (response.data.errors) {
+                if (Array.isArray(response.data.errors)) {
+                    response.data.errors.forEach((each: any) => {
+                        window.alert(each.message)
+                    });
+                } else if (typeof response.data.errors === "object") {
+                    Object.keys(response.data.errors).forEach((field) => {
+                        const errors = response.data.errors[field];
+                        errors.forEach((errorMessage: any) => {
+                            window.alert(errorMessage)
+                        });
+                    });
+                }
+            } else if (response.data.error) {
+                window.alert(response.data.error)
+            } else {
+                window.alert(response.data.message)
+            }
+            break;
+
+        default:
+            window.alert(err.message)
+            break;
+    }
+};
+
+
 export type Product = {
     id: number,
     name: string,
