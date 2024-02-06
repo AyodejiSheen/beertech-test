@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+@font-face {
+  font-family: "HeroFont";
+  src: url("../../public/fonts/Cocon\ Condensed\ Bold.otf") format("opentype");
+}
+
+input,
+textarea,
+button,
+select,
+a,
+div {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.hero_font {
+  font-family: "HeroFont" !important;
+}
+
+.product_image_bg {
+  @apply rounded-t-3xl bg-transparent
+}
+
+.product_wrapper:hover .product_image_bg {
+  @apply bg-gradient-to-l from-[#fae7d9] to-[#f7d2df]
+}
+
+.product_wrapper:hover .product_img {
+  @apply transform scale-110
+}
+
+.cart_btn {
+  @apply hidden transition-all duration-500 ease-in-out
+}
+
+
+.product_wrapper:hover .cart_btn {
+  @apply inline-flex
+}
+
+.product_img {
+  @apply transition-all duration-500 ease-in-out
+}
+
+
+.stat_icon_box{
+  @apply bg-white
+}
+
+.stat_wrapper:hover{
+  @apply bg-white bg-opacity-30
+}
+
+.stat_wrapper:hover .stat_icon_box {
+  @apply bg-primary text-white
+}
