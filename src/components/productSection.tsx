@@ -18,7 +18,7 @@ const ProductSection = () => {
     const [searchInput, setSearchInput] = useState("")
     const debounceValue = useDebounce(searchInput)
 
-    
+
     useEffect(() => {
         dispatch(getAllProducts())
         dispatch(getCategories())
@@ -60,10 +60,10 @@ const ProductSection = () => {
                 </div>
             </div>
 
-            <div className='flex justify-between items-center w-full'>
+            <div className='flex flex-col md:flex-row gap-3 justify-between items-center w-full'>
                 <div className='max-w-sm w-full'>
                     <select onChange={(e) => dispatch(setProductSorting(e.target.value))} className=' border h-10 rounded-lg bg-gray-50 w-full text-sm px-2 outline-none'>
-                        <option disabled>Filter by price</option>
+                        <option selected disabled>Filter by price</option>
                         <option value={"asec"}>Low - High Price</option>
                         <option value={"desc"}>High - Low Price</option>
                     </select>
