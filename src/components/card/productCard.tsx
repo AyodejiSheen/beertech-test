@@ -28,7 +28,7 @@ const ProductCard = ({ item }: { item: Product }) => {
                 <div className='space-y-1'>
                     <p className='text-xs font-medium text-gray-600 capitalize'> {item.title}</p>
                     <div>
-                        <Rating activeLength={item.rating  * 0.65} />
+                        <Rating activeLength={item.rating * 0.65} />
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ const ProductCard = ({ item }: { item: Product }) => {
                     </div>
 
                     <div className='w-max cart_btn'>
-                        <Button onClick={() => dispatch(addToCart())} variant='primary' size='xs'>Add To Cart</Button>
+                        <Button onClick={() => dispatch(addToCart(item))} variant='primary' size='xs'>Add To Cart</Button>
                     </div>
                 </div>
             </div>

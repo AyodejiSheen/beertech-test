@@ -12,9 +12,6 @@ import ProductSection from "@/components/productSection";
 export default function Home() {
 
 
-  // const uniqueCategories = products?.map((each) => ({ id: each.id, name: each.category }))
-  //   ?.filter((category, index, self) => index === self.findIndex((c) => c.name === category.name));
-
   return (
 
     <section className="space-y-16 pb-6">

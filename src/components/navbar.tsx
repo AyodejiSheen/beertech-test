@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const pathname = usePathname()
     const [openTab, setOpenTab] = useState(false)
-    const { cartCount } = useAppSelector(state => state.cart)
+    const { cartItems } = useAppSelector(state => state.cart)
 
     const routes = [
         { id: 1, name: "Home", sub: false, path: "/" },
@@ -28,6 +28,7 @@ const Navbar = () => {
                 <Link href="/">
                     <Image src={Logo} alt='shop.com' className='w-24 object-contain' />
                 </Link>
+
 
                 <div className={` bg-white lg:bg-transparent absolute lg:static lg:flex gap-6 flex items-center justify-center text-center flex-col lg:flex-row w-full lg:w-auto h-screen lg:h-max top-0 left-0 bottom-0 lg:translate-x-0 transform ease-in-out duration-300 transition ${openTab ? "translate-x-0 z-50" : "-translate-x-full"}`}>
 
@@ -53,17 +54,19 @@ const Navbar = () => {
                         <Iconify icon='uil:search' className='text-xl' />
                     </button>
 
-                    <button className='relative'>
-                        <Iconify icon='solar:cart-large-bold-duotone' className='text-2xl' />
-
-                        <div className='absolute bg-primary -left-1 text-white text-[9px] h-3 -pt-0.5 w-3 -top-1 rounded-full'>
-                            {cartCount}
-                        </div>
-                    </button>
-
                     <button>
                         <Iconify icon='lucide:user-round' className='text-xl' />
                     </button>
+
+                    <Link href="/cart">
+                        <button className='shadow-lg shadow-primary/40 bg-primary text-white flex gap-2 items-center px-3 rounded-full py-1' >
+                            <Iconify icon='solar:cart-large-bold-duotone' className='text-2xl' />
+
+                            <p className='font-medium text-sm'>
+                                {cartItems.length}
+                            </p>
+                        </button>
+                    </Link>
                 </div>
 
                 <div className='lg:hidden'>

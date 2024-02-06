@@ -4,13 +4,16 @@ import { Product } from "../product/interface";
 
 
 interface initialState {
-    cartItems: Product[]
+    cartItems: {
+        item: Product,
+        qty: number
+    }[]
 }
 
 
 
 //define the initalstate for this CartSlice 
-const initialValue = {
+const initialValue: initialState = {
     cartItems: [],
 }
 
@@ -23,7 +26,33 @@ export const CartSlice = createSlice({
     reducers: {
 
         addToCart: (state: initialState, action: PayloadAction<Product>) => {
-            state.cartItems.push(action.payload)
+            let newProduct = action.payload
+            if (state.cartItems) {
+                let findProductIndex = state.cartItems.findIndex((each) => each.item.id === newProduct.id)
+                if (findProductIndex !== -1) {
+                    state.cartItems[findProductIndex].qty += 1
+                } else {
+                    state.cartItems = [...state.cartItems, {
+                        item: action.payload,
+                        qty: 1
+                    }]
+                }
+            }
+        },
+
+
+        updateCartItem: (state: initialState, action: PayloadAction<{
+            item: Product,
+            qty: number
+        }[]>) => {
+            state.cartItems = action.payload
+        },
+
+
+        clearAllCart: (state: initialState) => {
+            if (state.cartItems) {
+                state.cartItems = []
+            }
         }
 
 
@@ -45,5 +74,6 @@ export const CartSlice = createSlice({
 export default CartSlice.reducer;
 export const {
     addToCart,
-
+    updateCartItem,
+    clearAllCart
 } = CartSlice.actions
