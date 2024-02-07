@@ -31,7 +31,6 @@ const Navbar = () => {
 
 
                 <div className={` bg-white lg:bg-transparent absolute lg:static lg:flex gap-6 flex items-center justify-center text-center flex-col lg:flex-row w-full lg:w-auto h-screen lg:h-max top-0 left-0 bottom-0 lg:translate-x-0 transform ease-in-out duration-300 transition ${openTab ? "translate-x-0 z-50" : "-translate-x-full"}`}>
-
                     <div className='absolute top-6 right-6 lg:hidden'>
                         <button onClick={() => setOpenTab(!openTab)}>
                             <Iconify icon='ion:close' className='text-4xl' />
@@ -41,7 +40,7 @@ const Navbar = () => {
                     {
                         routes.map((each, i) => (
                             <div key={each.id} className={`${pathname === each.path ? "border-b-2  border-primary font-semibold" : "hover:border-b-2  border-primary"} font-medium`}>
-                                <Link href={each.path} className='text-xl lg:text-sm'>
+                                <Link href={each.path} onClick={() => openTab && setOpenTab(false)} className='text-xl lg:text-sm'>
                                     {each.name}
                                 </Link>
                             </div>
@@ -59,7 +58,7 @@ const Navbar = () => {
                     </button>
 
                     <Link href="/cart">
-                        <button className='shadow-lg shadow-primary/40 bg-primary text-white flex gap-2 items-center px-3 rounded-full py-1' >
+                        <button className='shadow-lg shadow-primary/40 bg-primary text-white flex gap-2 items-center px-2 md:px-3 rounded-full py-1' >
                             <Iconify icon='solar:cart-large-bold-duotone' className='text-2xl' />
 
                             <p className='font-medium text-sm'>

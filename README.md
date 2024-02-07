@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository using git clone https://github.com/AyodejiSheen/beertech-test.git <name of application>
+
+then run npm install.
+
+After, run the development server:
 
 ```bash
 npm run dev

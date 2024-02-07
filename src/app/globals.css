@@ -46,7 +46,7 @@ div {
 }
 
 .cart_btn {
-  @apply hidden transition-all duration-500 ease-in-out
+  @apply md:hidden transition-all duration-500 ease-in-out
 }
 
 
