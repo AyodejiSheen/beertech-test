@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "../product/interface";
+import { toast } from "sonner";
 
 
 
@@ -31,6 +32,7 @@ export const CartSlice = createSlice({
                 let findProductIndex = state.cartItems.findIndex((each) => each.item.id === newProduct.id)
                 if (findProductIndex !== -1) {
                     state.cartItems[findProductIndex].qty += 1
+                    toast.success("Item quantity updated")
                 } else {
                     state.cartItems = [...state.cartItems, {
                         item: action.payload,
