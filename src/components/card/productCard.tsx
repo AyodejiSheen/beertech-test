@@ -13,9 +13,8 @@ const ProductCard = ({ item }: { item: Product }) => {
 
     const dispatch = useAppDispatch()
 
-
     return (
-        <div data-testid="product_card" className='border rounded-3xl bg-gray-100 cursor-pointer product_wrapper h-80'>
+        <div className='border rounded-3xl bg-gray-100 cursor-pointer product_wrapper h-80'>
             <div className='h-52 flex items-center justify-center relative product_image_bg'>
                 <button className='h-8 w-8 rounded-full absolute top-4 right-4 bg-white flex items-center justify-center'>
                     <Iconify icon='mdi:heart' className={"text-black"} />

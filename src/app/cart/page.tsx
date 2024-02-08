@@ -65,7 +65,7 @@ const CartPage = () => {
             <div className="flex flex-col items-center justify-center gap-3">
                 <h3 className="font-medium">CART</h3>
                 <div className="w-12 h-1 rounded-full bg-primary -mt-2" />
-                <h4 className="text-2xl font-semibold">Items In Your Cart  <span className='bg-primary bg-opacity-10 text-primary px-3 h-5 rounded-lg font-bold'>{cartItems.length}</span></h4>
+                <h4 className="text-2xl font-semibold">Items In Your Cart  <span className='bg-primary bg-opacity-10 text-lg text-primary px-3 h-5 rounded-lg font-bold'>{cartItems.length}</span></h4>
             </div>
 
             <section className='space-y-4 max-w-5xl w-full mx-auto'>
@@ -145,8 +145,6 @@ const CartPage = () => {
                         </div>
                     )
                 }
-
-
             </section>
         </section>
     )
