@@ -22,6 +22,7 @@ export default function Home() {
             <h1 className="hero_font text-7xl md:text-8xl lg:text-[8rem] xl:text-[10rem] 2xl:text-[12rem] leading-none tracking-wider">
               fash<span className="text-primary">i</span>on
             </h1>
+            
             <h3 className="capitalize lg:text-xl font-medium">Look your best on your best day</h3>
           </div>
 

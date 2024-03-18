@@ -35,6 +35,7 @@ const ProductSection = () => {
         }
     }
 
+    
 
     const filteredProduct = products?.filter((each) =>
         each.title?.toLowerCase().includes(debounceValue.toLowerCase())
